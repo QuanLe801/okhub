@@ -1,0 +1,22 @@
+@import 'aos/dist/aos.css';
+@font-face {
+  font-family: 'Averta Std CY';
+  src: url('../../public/fonts/IntelligentLight.otf');
+}
+
+@font-face {
+  font-family: 'Averta Std CY Bold';
+  src: url('../../public/fonts/IntelligentBlack_1.otf');
+}
+@font-face {
+  font-family: 'Averta Std CY Extra Bold';
+  src: url('../../public/fonts/IntelligentExtrabold_1.otf');
+}
+@font-face {
+  font-family: 'Averta Std CY Regular';
+  src: url('../../public/fonts/IntelligentRegular_3.otf');
+}
+
+main {
+  width: 100vh;
+}
