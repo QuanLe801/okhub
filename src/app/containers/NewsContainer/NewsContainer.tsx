@@ -156,18 +156,19 @@ const ProcessStyled = styled.div<{ $totalItem: any; $index: any }>`
   }
 `;
 
+const widthScreen = () => {
+  let width;
+  if (typeof window !== 'undefined') {
+    width = window.innerWidth;
+    return width;
+  } else width = 0;
+  return width;
+};
+
 function NewsContainer() {
-  const width = window.innerWidth;
-  const [screenWidth, setScreenWidth] = useState<number>();
+  const width = widthScreen();
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef<any>(null);
-
-  useEffect(() => {
-    setScreenWidth(width);
-  }, []);
-  useEffect(() => {
-    setScreenWidth(width);
-  }, [window.innerWidth]);
 
   const getTotalPage = () => {
     let totalPage;
