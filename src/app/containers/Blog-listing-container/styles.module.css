@@ -1,0 +1,16 @@
+.blogListingWrapper {
+  max-width: 1260px;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.blogContainerWrapper {
+  max-width: 1260px;
+  margin: auto;
+}

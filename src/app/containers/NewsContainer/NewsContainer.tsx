@@ -58,13 +58,13 @@ const SliderStyled = styled(Slider)`
   }
 `;
 
-const TitleWrapperStyled = styled.div`
+export const TitleWrapperStyled = styled.div`
   padding: 110px 70px 20px 70px;
   @media screen and (max-width: 576px) {
     padding: 60px 20px 20px 10px;
   }
 `;
-const ButtonMoreStyled = styled.button`
+export const ButtonMoreStyled = styled.button`
   height: 60px;
   padding: 10px 35px;
   border-radius: 32px;
@@ -87,7 +87,7 @@ const ButtonMoreStyled = styled.button`
   }
 `;
 
-const TitleStyled = styled.div`
+export const TitleStyled = styled.div`
   color: #376a66;
   text-align: center;
   font-family: Averta Std CY;
@@ -110,7 +110,7 @@ const NewsBlockStyled = styled.div`
   padding-bottom: 116px;
 `;
 
-const DescriptionStyled = styled.div`
+export const DescriptionStyled = styled.div`
   font-size: 60px;
   font-style: normal;
   font-weight: 800;
@@ -148,7 +148,7 @@ const ProcessStyled = styled.div<{ $totalItem: any; $index: any }>`
     content: '';
     background: linear-gradient(180deg, #4ca757, #16a571);
     position: absolute;
-    width: ${(props) => (100 / (props.$totalItem + 2)) * (props.$index + 1)}%;
+    width: ${(props) => (100 / props.$totalItem) * (props.$index + 1)}%;
     height: 3px;
     top: 50%;
     left: 0;
@@ -173,13 +173,15 @@ function NewsContainer() {
   const getTotalPage = () => {
     let totalPage;
     if (width <= 992) {
-      totalPage = 6;
+      //totalPage = totalItemNews - (SlideToShow - 1)
+      //sử dụng nguyên tắc hoán vị để tính totalPage
+      totalPage = newsList.length - (1 - 1);
     } else if (width <= 1400) {
-      totalPage = 5;
+      totalPage = newsList.length - (2 - 1);
     } else if (width <= 1700) {
-      totalPage = 4;
+      totalPage = newsList.length - (3 - 1);
     } else if (width > 1700) {
-      totalPage = 3;
+      totalPage = newsList.length - (4 - 1);
     }
     return totalPage;
   };
@@ -218,6 +220,8 @@ function NewsContainer() {
       },
     ],
   };
+  console.log(getTotalPage());
+  console.log(activeSlide);
 
   return (
     <NewsBlockStyled>

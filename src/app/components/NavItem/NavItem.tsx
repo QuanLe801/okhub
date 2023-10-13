@@ -1,13 +1,20 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import './styles.css';
+import Link from 'next/link';
 
 interface NavItemInterface {
   item: string;
   textBlack: boolean;
+  urlName: string;
 }
 
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+`;
+
 const NavItemStyled = styled.div<{ $textBlack: boolean }>`
+  text-decoration: none;
   position: relative;
   color: ${(props) => (props.$textBlack ? '#000000' : '#fff')};
   font-family: Averta Std CY;
@@ -78,9 +85,13 @@ const NavItemStyled = styled.div<{ $textBlack: boolean }>`
 `;
 
 function NavItem({ ...props }: NavItemInterface) {
-  const { item, textBlack } = props;
+  const { item, textBlack, urlName } = props;
 
-  return <NavItemStyled $textBlack={textBlack}>{item}</NavItemStyled>;
+  return (
+    <LinkStyled href={urlName}>
+      <NavItemStyled $textBlack={textBlack}>{item}</NavItemStyled>
+    </LinkStyled>
+  );
 }
 
 export default NavItem;

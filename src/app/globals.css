@@ -17,6 +17,7 @@
   src: url('../../public/fonts/IntelligentRegular_3.otf');
 }
 
-main {
-  width: 100vh;
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../../public/fonts/WorkSans-Medium.ttf');
 }
