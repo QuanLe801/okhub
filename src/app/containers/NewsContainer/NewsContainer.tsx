@@ -1,6 +1,7 @@
 'use client';
 import CardNews from '@/app/components/CardNews/CardNews';
 import { newsList } from '@/app/utils/const';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 import { styled } from 'styled-components';
@@ -166,6 +167,7 @@ const widthScreen = () => {
 };
 
 function NewsContainer() {
+  const router = useRouter();
   const width = widthScreen();
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef<any>(null);
@@ -230,7 +232,9 @@ function NewsContainer() {
           <TitleStyled>NEWS</TitleStyled>
           <DescriptionStyled>Lastest News</DescriptionStyled>
         </div>
-        <ButtonMoreStyled>See more</ButtonMoreStyled>
+        <ButtonMoreStyled onClick={() => router.push('/news')}>
+          See more
+        </ButtonMoreStyled>
       </TitleWrapperStyled>
       <SliderWrapperStyled className="mx-100">
         <SliderStyled {...settings} ref={sliderRef}>

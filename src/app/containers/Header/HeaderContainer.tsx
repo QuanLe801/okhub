@@ -227,7 +227,8 @@ const ButtonCanvas = styled.div<{ $isUpper: boolean }>`
   height: 6px;
   cursor: pointer;
   vertical-align: middle;
-  background: url(${(props) => props.$isUpper ? '/canvas.svg' : 'canvasBlack.svg'});
+  background: url(${(props) =>
+    props.$isUpper ? '/canvas.svg' : 'canvasBlack.svg'});
 `;
 
 const DesCriptionWrapperSubNav = styled.div`
